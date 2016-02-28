@@ -1,5 +1,7 @@
 # FileUtilsSimple
 
+[![Circle CI](https://circleci.com/gh/hone/mruby-fileutils-simple.svg?style=svg)](https://circleci.com/gh/hone/mruby-fileutils-simple)
+
 A stripped down version of FileUtils (4KB vs. 47KB). It delegates all
 hard work to system tools.
 
