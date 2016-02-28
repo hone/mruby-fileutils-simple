@@ -9,6 +9,6 @@ MRuby::Gem::Specification.new('mruby-fileutils-simple') do |spec|
   spec.add_dependency 'mruby-io',          mgem: 'mruby-io'
   spec.add_dependency 'mruby-process',     mgem: 'mruby-process'
   spec.add_dependency 'mruby-onig-regexp', mgem: 'mruby-onig-regexp'
-  spec.add_test_dependency 'mruby-mtest',  mgem: 'mruby-mtest'
+  spec.add_test_dependency 'mruby-mtest'#,  mgem: 'mruby-mtest'
   spec.add_test_dependency 'mruby-env',    mgem: 'mruby-env'
 end

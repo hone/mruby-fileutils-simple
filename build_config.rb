@@ -12,4 +12,5 @@ MRuby::Build.new do |conf|
   conf.enable_test
 
   gem_config(conf)
+  conf.gem mgem: "mruby-mtest"
 end
