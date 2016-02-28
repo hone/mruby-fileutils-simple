@@ -17,7 +17,7 @@ module FileUtilsSimple
 
     def self.touch list
       list = [list] unless list.is_a? Array
-      list.map!(&:shellescape)
+      list.map! {|item| item.shellescape }
       system "touch #{list.join ' '}"
     end
 
@@ -29,20 +29,20 @@ module FileUtilsSimple
 
     def self.mkdir list
       list = [list] unless list.is_a? Array
-      list.map!(&:shellescape)
+      list.map! {|item| item.shellescape }
       system "mkdir -p #{list.join ' '}"
     end
     singleton_class.send(:alias_method, :mkdir_p, :mkdir)
 
     def self.rmdir list
       list = [list] unless list.is_a? Array
-      list.map!(&:shellescape)
+      list.map! {|item| item.shellescape }
       system "rmdir #{list.join ' '}"
     end
 
     def self.rm list
       list = [list] unless list.is_a? Array
-      list.map!(&:shellescape)
+      list.map! {|item| item.shellescape }
       system "rm -rf #{list.join ' '}"
     end
     singleton_class.send(:alias_method, :rm_r, :rm)
@@ -50,52 +50,52 @@ module FileUtilsSimple
 
     def self.ln_f src, dest
       src = [src] unless src.is_a? Array
-      src.map!(&:shellescape)
+      src.map! {|item| item.shellescape }
       system "ln -f #{src.join ' '} #{dest.shellescape}"
     end
     singleton_class.send(:alias_method, :ln, :ln_f)
 
     def self.ln_sf src, dest
       src = [src] unless src.is_a? Array
-      src.map!(&:shellescape)
+      src.map! {|item| item.shellescape }
       system "ln -sf #{src.join ' '} #{dest.shellescape}"
     end
     singleton_class.send(:alias_method, :ln_s, :ln_sf)
 
     def self.cp_r src, dest
       src = [src] unless src.is_a? Array
-      src.map!(&:shellescape)
+      src.map! {|item| item.shellescape }
       system "cp -rp #{src.join ' '} #{dest.shellescape}"
     end
     singleton_class.send(:alias_method, :cp, :cp_r)
 
     def self.mv src, dest
       src = [src] unless src.is_a? Array
-      src.map!(&:shellescape)
+      src.map! {|item| item.shellescape }
       system "mv #{src.join ' '} #{dest.shellescape}"
     end
 
     def self.chmod mode, list
       list = [list] unless list.is_a? Array
-      list.map!(&:shellescape)
+      list.map! {|item| item.shellescape }
       system "chmod #{mode} #{list.join ' '}"
     end
 
     def self.chmod_R mode, list
       list = [list] unless list.is_a? Array
-      list.map!(&:shellescape)
+      list.map! {|item| item.shellescape }
       system "chmod -R #{mode} #{list.join ' '}"
     end
 
     def self.chown user, group, list
       list = [list] unless list.is_a? Array
-      list.map!(&:shellescape)
+      list.map! {|item| item.shellescape }
       system "chown #{user}:#{group} #{list.join ' '}"
     end
 
     def self.chown_R user, group, list
       list = [list] unless list.is_a? Array
-      list.map!(&:shellescape)
+      list.map! {|item| item.shellescape }
       system "chown -R #{user}:#{group} #{list.join ' '}"
     end
 

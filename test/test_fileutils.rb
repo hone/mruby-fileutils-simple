@@ -75,7 +75,7 @@ class TestFileUtilsSimple < MTest::Unit::TestCase
   end
 
   def test_pwd_invalid_params
-    assert_raises ArgumentError do
+    assert_raise ArgumentError do
       FileUtilsSimple.pwd 1
     end
   end
@@ -167,7 +167,7 @@ class TestFileUtilsSimple < MTest::Unit::TestCase
   def test_chmod
     FileUtilsSimple.touch "1.txt"
     FileUtilsSimple.chmod 777, "1.txt"
-    assert_equal '777', `stat -c %a 1.txt`.strip
+    assert_equal '777', `stat -c %a 1.txt`.chomp
   end
 
   def test_chown
