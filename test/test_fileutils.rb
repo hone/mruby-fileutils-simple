@@ -1,9 +1,5 @@
 # This is taken from rake repo.
 
-require './helper'
-require '../mrblib/shellwords'
-require '../mrblib/main'
-
 class FakeStdout
   def initialize
     @log = []
@@ -18,7 +14,15 @@ end
 
 FileUtilsSimple::Delegator.stdout = FakeStdout.new
 
-class TestFileUtilsSimple < $testunit_class
+def __dir__
+  File.dirname __FILE__
+end
+
+File::ALT_SEPARATOR = nil
+
+$tmpdir = '.tmp'
+
+class TestFileUtilsSimple < MTest::Unit::TestCase
 
   def setup
     teardown
@@ -174,4 +178,4 @@ class TestFileUtilsSimple < $testunit_class
 
 end
 
-MTest::Unit.new.run if mruby?
+MTest::Unit.new.run
