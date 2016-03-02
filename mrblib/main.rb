@@ -62,10 +62,10 @@ module FileUtilsSimple
     end
     singleton_class.send(:alias_method, :ln_s, :ln_sf)
 
-    def self.cp_r src, dest
+    def self.cp_r src, dest, options = ""
       src = [src] unless src.is_a? Array
       src.map! {|item| item.shellescape }
-      system "cp -rp #{src.join ' '} #{dest.shellescape}"
+      system "cp -rp #{options} #{src.join ' '} #{dest.shellescape}"
     end
     singleton_class.send(:alias_method, :cp, :cp_r)
 
